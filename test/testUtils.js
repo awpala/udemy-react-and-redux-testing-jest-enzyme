@@ -4,4 +4,4 @@
  * @param {string} val - Value of data-test attribute for search.
  * @returns {ShallowWrapper} 
  */
-export const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test]="${val}"`)
+export const findByTestAttr = (wrapper, val) => wrapper.find(`[data-test="${val}"]`)
