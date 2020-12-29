@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { findByTestAttr } from '../../../test/testUtils';
+import { findByTestAttr, storeFactory } from '../../../test/testUtils';
 import Input from './Input';
 
-// N.B. Input is a connected component, which requires a more complex setup than components GuessedWords and Congrats
+// N.B. Input is a Redux-connected component, which requires a more complex setup than components GuessedWords and Congrats
 
 /**
  * Factory function to create a ShallowWrapper for the Input component.
@@ -13,8 +13,14 @@ import Input from './Input';
  * @returns {ShallowWrapper} 
  */
 const setup = (initialState={}) => {
-    const wrapper = shallow(<Input />);
-
+    const store = storeFactory(initialState);
+    const wrapper = shallow(<Input store={store} />).dive().dive();
+    // N.B. in the previous line, shallow(<Input store={store} />) returns the following:
+    // <ContextProvider value={{...}}>
+    //   <Input store={{...}} dispatch={[Function: dispatch]} />
+    // </ContextProvider>
+    // Therefore, method .dive() is required to access rendered Input component
+    return wrapper;
 };
 
 describe('render', () => {
