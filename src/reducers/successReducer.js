@@ -8,7 +8,7 @@ const initialState = {
  * @function successReducer
  * @param {array} state - Array of guessed words.
  * @param {object} action - action to be reduced.
- * @returns {boolean} - new success state.
+ * @returns {object} - new success state.
  */
 const successReducer = (state = initialState, action) => {
     switch (action.type) {
