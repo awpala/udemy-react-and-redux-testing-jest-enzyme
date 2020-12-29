@@ -1,18 +1,15 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
-import EnzymeAdapter from '@wojtekmaj/enzyme-adapter-react-17'; // N.B. Official enzyme-adapter-react-17 not released yet as of Dec. 2020, using provisional solution in the interim
+import { shallow } from 'enzyme';
 
 import { findByTestAttr, checkProps } from '../../../test/testUtils';
 import Congrats from './Congrats';
-
-Enzyme.configure({ adapter: new EnzymeAdapter() });
 
 const defaultProps = { success: false };
 
 /**
  * Factory function to create a ShallowWrapper for the Congrats component.
  * @function setup
- * @param {object} props - COmponent props specific to this setup.
+ * @param {object} props - Component props specific to this setup.
  * @returns {ShallowWrapper}
  */
 const setup = (props={}) => {
