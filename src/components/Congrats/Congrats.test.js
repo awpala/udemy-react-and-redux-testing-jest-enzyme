@@ -14,7 +14,7 @@ const defaultProps = { success: false };
  */
 const setup = (props={}) => {
     const setupProps = { ...defaultProps, ...props };
-    return shallow(<Congrats {...setupProps} />)
+    return shallow(<Congrats {...setupProps} />);
 }
 
 test('renders without error', () => {
@@ -35,4 +35,4 @@ test('renders non-empty congrats message when `success` prop is true', () => {
 test('does not throw warning with expected props', () => {
     const expectedProps = { success: false };
     checkProps(Congrats, expectedProps);
-})
+});
